@@ -57,6 +57,5 @@ public class Player : MonoBehaviour
         {
             shooter.isFiring = value.isPressed;;
         }
-        Debug.Log("Firing");
     }
 }
