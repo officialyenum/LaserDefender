@@ -53,7 +53,7 @@ MonoBehaviour:
   moveSpeed: 10
   paddingLeft: 0.5
   paddingRight: 0.5
-  paddingTop: 5
+  paddingTop: 8
   paddingBottom: 2
 --- !u!114 &2137375987
 MonoBehaviour:
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  health: 200
+  health: 100
   score: 50
   hitEffect: {fileID: 7983307564140602594, guid: f1c5b821dab574b288d362b548803226, type: 3}
   applyCameraShake: 1
