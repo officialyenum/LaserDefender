@@ -42,12 +42,36 @@ public class Health : MonoBehaviour
         if (!isPlayer)
         {
             scoreKeeper.ModifyScore(score);
+            //Generate Pickup
+            int pickup = Random.Range(1, 20);// where health is 1 and power up is 5;
+            if (pickup == 2)
+            {
+                SpawnHealth();
+            }
+            if (pickup == 3)
+            {
+                SpawnPowerUp();
+            }
         }
         else
         {
             levelManager.LoadGameOver();
         }
         Destroy(gameObject);
+    }
+
+    private void SpawnHealth()
+    {
+        Shooter shooter = gameObject.GetComponent<Shooter>();
+        GameObject healthPrefab = shooter.GetHealthPrefab();
+        Instantiate(healthPrefab, transform.position, Quaternion.identity);
+    }
+
+    private void SpawnPowerUp()
+    {
+        Shooter shooter = gameObject.GetComponent<Shooter>();
+        GameObject powerUpPrefab = shooter.GetPowerUpPrefab();
+        Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
     }
 
     public void Heal(int heal)

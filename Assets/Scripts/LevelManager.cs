@@ -24,10 +24,21 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(WaitAndLoad(1,0.5f));
     }
 
+    public void LoadHowToPlay()
+    {
+        StartCoroutine(WaitAndLoad(2, sceneLoadDelay));
+    }
+
+    public void LoadCredit()
+    {
+        StartCoroutine(WaitAndLoad(3, sceneLoadDelay));
+    }
+
     public void LoadGameOver()
     {
-        StartCoroutine(WaitAndLoad(2,sceneLoadDelay));
+        StartCoroutine(WaitAndLoad(4,sceneLoadDelay));
     }
+
 
     public void QuitGame()
     {

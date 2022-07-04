@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [Header("General")]
-    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] GameObject[] projectilePrefabs;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileLifeTime = 5f;
     [Header("Firing AI")]
@@ -18,11 +18,16 @@ public class Shooter : MonoBehaviour
     Coroutine firingCoroutine;
     AudioPlayer audioPlayer;
 
+    UIDisplay uIDisplay;
+
     [HideInInspector] public bool isFiring;
+
+    int firingNumber = 0;
 
     void Awake()
     {
         audioPlayer = FindObjectOfType<AudioPlayer>();
+        uIDisplay = FindObjectOfType<UIDisplay>();
     }
     void Start()
     {
@@ -54,7 +59,7 @@ public class Shooter : MonoBehaviour
     {
         while (isFiring)
         {
-            GameObject projectileInstance = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            GameObject projectileInstance = Instantiate(projectilePrefabs[firingNumber], transform.position, Quaternion.identity);
             Rigidbody2D projectileRB = projectileInstance.GetComponent<Rigidbody2D>();
             if (projectileRB != null )
             {
@@ -66,5 +71,32 @@ public class Shooter : MonoBehaviour
             audioPlayer.PlayShootingClip();
             yield return new WaitForSeconds(timeToNextProjectile); 
         }
+    }
+
+    public void IncreaseFiringRate()
+    {
+        StartCoroutine(IncreaseFiringForTenSeconds());
+    }
+
+
+    IEnumerator IncreaseFiringForTenSeconds()
+    {
+        firingNumber = 1;
+        baseFiringRate = 0.1f;
+        uIDisplay.ShowRiot();
+        yield return new WaitForSeconds(10f);
+        firingNumber = 0;
+        baseFiringRate = 0.2f;
+        uIDisplay.RemoveRiot();
+    }
+
+    public GameObject GetHealthPrefab()
+    {
+        return projectilePrefabs[2];
+    }
+
+    public GameObject GetPowerUpPrefab()
+    {
+        return projectilePrefabs[3];
     }
 }

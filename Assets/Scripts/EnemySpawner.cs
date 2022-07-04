@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemyWaves()
     {
+        yield return new WaitForSeconds(3f);
         do
         {
             foreach (WaveConfigSO wave in waveConfigSOs)

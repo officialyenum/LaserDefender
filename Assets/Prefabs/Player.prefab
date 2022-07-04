@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -7674398736431418424}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbcabc66424f443838a6ffe175a3fba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 5345336901750321310, guid: b1070086873264e3ca283d31c141210d, type: 3}
+  projectilePrefabs:
+  - {fileID: 5345336901750321310, guid: 61d57a0ea93cb40f7802f9010e17d1cc, type: 3}
+  - {fileID: 5345336901750321310, guid: b1070086873264e3ca283d31c141210d, type: 3}
   projectileSpeed: 10
   projectileLifeTime: 5
   baseFiringRate: 0.2

@@ -34,7 +34,6 @@ public class ScoreKeeper : MonoBehaviour
     {
         score += amount;
         Mathf.Clamp(score, 0, int.MaxValue);
-        Debug.Log("Score: " + score);
     }
 
     public void ResetScore()
