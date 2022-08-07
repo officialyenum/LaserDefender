@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -4245959426735732518}
   - component: {fileID: -2783608795667575385}
   - component: {fileID: -7674398736431418424}
+  - component: {fileID: 7797493266044151829}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1262951077191922943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9105862895076838115}
@@ -161,6 +162,20 @@ MonoBehaviour:
   minimumFiringRate: 0.1
   useAI: 0
   isFiring: 0
+--- !u!114 &7797493266044151829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262951077191922943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b645f1024ff4455ab14180177f75d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 0}
+  shieldOn: 0
 --- !u!1 &1666185661019925079
 GameObject:
   m_ObjectHideFlags: 0

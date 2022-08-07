@@ -15,7 +15,7 @@ public class PlayerHandler : MonoBehaviour
 
     void Awake()
     {
-        shooter = FindObjectOfType<Shooter>();
+        shooter = player.GetComponent<Shooter>();
         health = player.GetComponent<Health>();
         playerRigidbody2D = player.GetComponent<Rigidbody2D>();
         

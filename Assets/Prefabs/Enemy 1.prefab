@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2698179836790015873}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2871515313585412203}
@@ -218,6 +218,7 @@ MonoBehaviour:
   - {fileID: 5345336901750321310, guid: 729894cedd26a452d96e0acf6f72933a, type: 3}
   - {fileID: 7278980203715137364, guid: 2ef0e8aacb68f46f6bd15ce647704806, type: 3}
   - {fileID: 5196641752633781954, guid: f000b87df2af747c2807a88ce4020abb, type: 3}
+  - {fileID: 5196641752633781954, guid: ef76b331a6fd740389aa16463769fb39, type: 3}
   projectileSpeed: 12
   projectileLifeTime: 5
   baseFiringRate: 1

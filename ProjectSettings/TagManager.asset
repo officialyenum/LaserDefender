@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PowerUp
   - Health
+  - Projectile
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

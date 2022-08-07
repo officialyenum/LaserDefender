@@ -99,4 +99,9 @@ public class Shooter : MonoBehaviour
     {
         return projectilePrefabs[3];
     }
+
+    public GameObject GetShieldPrefab()
+    {
+        return projectilePrefabs[4];
+    }
 }

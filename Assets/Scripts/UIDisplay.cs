@@ -48,4 +48,14 @@ public class UIDisplay : MonoBehaviour
     {
         riotImage.SetActive(false);
     }
+
+    public void ShowShield()
+    {
+        shieldImage.SetActive(true);
+    }
+
+    public void RemoveShield()
+    {
+        shieldImage.SetActive(false);
+    }
 }

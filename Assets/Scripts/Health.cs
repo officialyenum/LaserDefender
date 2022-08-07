@@ -12,12 +12,14 @@ public class Health : MonoBehaviour
     CameraShake cameraShake;
     AudioPlayer audioPlayer;
     ScoreKeeper scoreKeeper;
+    Shield shield;
 
     LevelManager levelManager;
 
     void Awake()
     {
         cameraShake = Camera.main.GetComponent<CameraShake>();
+        shield = gameObject.GetComponent<Shield>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
         levelManager = FindObjectOfType<LevelManager>();
@@ -52,6 +54,10 @@ public class Health : MonoBehaviour
             {
                 SpawnPowerUp();
             }
+            if (pickup == 4)
+            {
+                SpawnShield();
+            }
         }
         else
         {
@@ -74,6 +80,13 @@ public class Health : MonoBehaviour
         Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
     }
 
+    private void SpawnShield()
+    {
+        Shooter shooter = gameObject.GetComponent<Shooter>();
+        GameObject shieldPrefab = shooter.GetShieldPrefab();
+        Instantiate(shieldPrefab, transform.position, Quaternion.identity);
+    }
+
     public void Heal(int heal)
     {
         health += heal;
@@ -91,13 +104,21 @@ public class Health : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        Shield shield = gameObject.GetComponent<Shield>();
         if (damageDealer != null)
         {
-            TakeDamage(damageDealer.GetDamage());
-            PlayHitEffect();
-            audioPlayer.PlayDamageClip();
-            ShakeCamera();
-            damageDealer.Hit();
+            if (shield != null && shield.shieldOn)
+            {
+                Debug.Log("do nothing");
+            }
+            else
+            {
+                TakeDamage(damageDealer.GetDamage());
+                PlayHitEffect();
+                audioPlayer.PlayDamageClip();
+                ShakeCamera();
+                damageDealer.Hit();
+            }
         }
     }
 

@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-        shooter = FindObjectOfType<Shooter>();
+        shooter = GetComponent<Shooter>();
     }
 
     void Start()
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        
+
     }
 
     void InitBounds()
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 
     void OnFire(InputValue value)
     {
+        Debug.Log("On Fire :" + value);
         if (shooter != null)
         {
             shooter.isFiring = value.isPressed;

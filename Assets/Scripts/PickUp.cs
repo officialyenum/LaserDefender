@@ -7,6 +7,7 @@ public class PickUp : MonoBehaviour
 {
     [SerializeField] bool isHealth = true;
     [SerializeField] bool isPowerUp = false;
+    [SerializeField] bool isShield = false;
     // Start is called before the first frame update
     Player player;
     void Start()
@@ -36,6 +37,10 @@ public class PickUp : MonoBehaviour
         {
             IncreaseBaseRate();
         }
+        if(isShield)
+        {
+            ActivateShield();
+        }
     }
 
     private void AddHealth()
@@ -46,6 +51,11 @@ public class PickUp : MonoBehaviour
     private void IncreaseBaseRate()
     {
         player.GetComponent<Shooter>().IncreaseFiringRate();
+    }
+
+    private void ActivateShield()
+    {
+        player.GetComponent<Shield>().ActivateShield();
     }
 
 }
